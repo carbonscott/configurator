@@ -140,10 +140,10 @@ class Configurator(dict):
             return input_dict
 
 
-    def to_dataclass(self, config_name = 'Config'):
+    def to_dataclass(self, class_name):
         internal_dict = self.to_dict()
 
-        Config        = Configurator.define_dataclass_from_dict(internal_dict, 'Config')
-        static_config = Configurator.instantiate_dataclass_from_dict(Config, internal_dict)
+        new_class     = Configurator.define_dataclass_from_dict(internal_dict, class_name)
+        static_config = Configurator.instantiate_dataclass_from_dict(new_class, internal_dict)
 
         return static_config

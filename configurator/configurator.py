@@ -89,7 +89,7 @@ class Configurator(dict):
         for key, value in input_dict.items():
             # Need a new dataclass node???
             if isinstance(value, dict):
-                field_type = Configurator.define_dataclass_from_dict(value, class_name = f'{key}Config')
+                field_type = Configurator.define_dataclass_from_dict(value, class_name = f'{key.capitalize()}Config')
 
             # Otherwise...
             else:
